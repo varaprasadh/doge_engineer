@@ -58,7 +58,7 @@ try{
             }
         } catch (error) {
             // reply to tweet 
-            console.log("cant retweet/reply,trying to reply to tweet");
+            console.log("cant retweet/reply,trying to reply to tweet", error);
         }
 
        try{
@@ -105,7 +105,7 @@ const replyToTweet = async tweet => {
     const tweetId = tweet.id_str;
     const screen_name = tweet.user.screen_name;
           
-    const message = `👋 hey @${screen_name}, do you likes doges 🐶? `
+    let message = `👋 hey @${screen_name}, do you likes doges 🐶? `
 
     const random = Math.random();
     
