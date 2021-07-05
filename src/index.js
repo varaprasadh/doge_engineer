@@ -36,13 +36,6 @@ try{
 
     const stream = T.stream('statuses/filter', { track: hashtags.join() });
 
-
-    // use this to log errors from requests
-    function responseCallback(err, data, response) {
-        console.log(err.message);
-    }
-
-
     // event handler
     stream.on('tweet', async tweet => {
         // retweet
