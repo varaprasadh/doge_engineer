@@ -21,7 +21,8 @@ const  T = new Twit({
 const MY_USERNAME = `consious_coder`
 
 const hashtags = [
-    "#Doge"
+    // "#Doge"
+    "#Elon"
 ];
 
 const log = message =>{
