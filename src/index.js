@@ -40,12 +40,15 @@ try{
     stream.on('tweet', async tweet => {
         // retweet
         // console.log(tweet);
+
+        console.log(`incoming tweet by ${tweet.user.screen_name}`);
+
         if (tweet.retweeted_status) {
             // log("ignoring retweeted tweet");
             return;
         }
-        
-        console.log(`incoming tweet by ${tweet.user.screen_name}`);
+
+        console.log(`proceeding with above tweet`);
 
         try {
             if (Math.random() < 0.4) {
