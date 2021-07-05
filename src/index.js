@@ -19,8 +19,7 @@ const  T = new Twit({
 // start stream and track tweets
 
 const hashtags = [
-    "#Doge",
-    "#doge",
+    "#Doge"
 ];
 
 const log = message =>{
