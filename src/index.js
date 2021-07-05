@@ -75,7 +75,7 @@ const reTweet = async (tweet) => {
    return new Promise((resolve,reject)=>{
        T.post('statuses/retweet/:id', { id: tweetId }, (err, data, response) => {
            if (err) {
-               reject(err);
+               return reject(err);
            }
            console.log("retweeted");
            resolve(data);
@@ -89,7 +89,7 @@ const likeTweet = async tweet => {
     return new Promise((resolve, reject) => {
         T.post('favorites/create', { id: tweetId }, (err, data, response) => {
             if (err) {
-                reject(err);
+                return reject(err);
             }
             console.log("tweet liked");
             resolve(data);
@@ -122,7 +122,7 @@ const replyToTweet = async tweet => {
     return new Promise((resolve,reject)=>{
         T.post('statuses/update', reply , (err, data, response) => {
             if (err) {
-                reject(err);
+                return reject(err);
             }
             console.log(`replied to ${screen_name}`);
             resolve(data);
