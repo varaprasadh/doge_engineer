@@ -21,34 +21,32 @@ const  T = new Twit({
 const MY_USERNAME = `consious_coder`
 
 const hashtags = [
-    // "#Doge"
-    "#Elon"
+    "#100DaysOfCode"
 ];
+
 
 const log = message =>{
     console.log(message);
-
 }
 
 try{
 
-    console.log("bot is running");
+    log("bot is running");
 
     const stream = T.stream('statuses/filter', { track: hashtags.join() });
 
     // event handler
     stream.on('tweet', async tweet => {
         // retweet
-        // console.log(tweet);
 
-        console.log(`incoming tweet by ${tweet.user.screen_name}`);
+        log(`incoming tweet by ${tweet.user.screen_name}`);
 
         if (tweet.retweeted_status) {
             // log("ignoring retweeted tweet");
             return;
         }
 
-        console.log(`proceeding with above tweet`);
+        log(`proceeding with above tweet`);
 
         try {
             if (Math.random() < 0.4) {
@@ -58,7 +56,7 @@ try{
             }
         } catch (error) {
             // reply to tweet 
-            console.log("cant retweet/reply,trying to reply to tweet", error);
+            log("cant retweet/reply,trying to reply to tweet", error);
         }
 
        try{
@@ -81,7 +79,7 @@ const reTweet = async (tweet) => {
            if (err) {
                return reject(err);
            }
-           console.log("retweeted");
+           log("retweeted");
            resolve(data);
        })
    })
@@ -95,7 +93,7 @@ const likeTweet = async tweet => {
             if (err) {
                 return reject(err);
             }
-            console.log("tweet liked");
+            log("tweet liked");
             resolve(data);
         })
     })
@@ -105,18 +103,8 @@ const replyToTweet = async tweet => {
     const tweetId = tweet.id_str;
     const screen_name = tweet.user.screen_name;
           
-    let message = `👋 hey @${screen_name}, do you likes doges 🐶? `
+    let message = `👋 hey @${screen_name}, Keep Going! 🐶 `
 
-    const random = Math.random();
-    
-    if (random < 0.3) {
-        message = `yay, you are in my list to get a chance to win few doges 🐶`
-    }else if (random < 0.5){
-        message = `looks like you love doges 🐶, do you want some ?`;
-    }else{
-        message += `if yes then follow me and my boss @${MY_USERNAME}`
-    }
-    
     const reply = {
         in_reply_to_status_id: tweetId,
         status: message
@@ -128,7 +116,7 @@ const replyToTweet = async tweet => {
             if (err) {
                 return reject(err);
             }
-            console.log(`replied to ${screen_name}`);
+            log(`replied to ${screen_name}`);
             resolve(data);
         })
     })
