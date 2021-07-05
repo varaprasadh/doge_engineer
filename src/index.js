@@ -18,6 +18,8 @@ const  T = new Twit({
 
 // start stream and track tweets
 
+const MY_USERNAME = `consious_coder`
+
 const hashtags = [
     "#Doge"
 ];
@@ -104,6 +106,17 @@ const replyToTweet = async tweet => {
     const screen_name = tweet.user.screen_name;
           
     const message = `👋 hey @${screen_name}, do you likes doges 🐶? `
+
+    const random = Math.random();
+    
+    if (random < 0.3) {
+        message = `yay, you are in my list to get a chance to win few doges 🐶`
+    }else if (random < 0.5){
+        message = `looks like you love doges 🐶, do you want some ?`;
+    }else{
+        message += `if yes then follow me and my boss @${MY_USERNAME}`
+    }
+    
     const reply = {
         in_reply_to_status_id: tweetId,
         status: message
