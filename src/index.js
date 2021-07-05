@@ -42,7 +42,7 @@ try{
         console.log(`incoming tweet by ${tweet.user.screen_name}`);
         // console.log(tweet);
         if (tweet.retweeted_status) {
-            log("ignoring retweeted tweet");
+            // log("ignoring retweeted tweet");
             return;
         }
 
