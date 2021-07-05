@@ -77,6 +77,7 @@ const reTweet = async (tweet) => {
            if (err) {
                reject(err);
            }
+           console.log("retweeted");
            resolve(data);
        })
    })
@@ -90,6 +91,7 @@ const likeTweet = async tweet => {
             if (err) {
                 reject(err);
             }
+            console.log("tweet liked");
             resolve(data);
         })
     })
