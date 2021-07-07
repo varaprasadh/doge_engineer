@@ -21,8 +21,8 @@ const  T = new Twit({
 const MY_USERNAME = `consious_coder`
 
 const hashtags = [
-    // "#Doge"
-    "#Elon"
+    "#Doge"
+    // "#Elon"
 ];
 
 const log = message =>{
@@ -114,7 +114,7 @@ const replyToTweet = async tweet => {
     }else if (random < 0.5){
         message = `looks like you love doges 🐶, do you want some ?`;
     }else{
-        message += `if yes then follow me and my boss @${MY_USERNAME}`
+        message += `if yes then follow me,i'll follow you back`
     }
     
     const reply = {
